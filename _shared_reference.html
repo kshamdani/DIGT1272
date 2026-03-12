@@ -1,0 +1,70 @@
+<!-- This file is a reference for the shared <head>, <nav>, <footer> used in all pages -->
+
+<!-- HEAD -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAGE TITLE - AccessWeb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo" aria-label="AccessWeb - Home">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false" title="Toggle screen reader simulation">🔊 Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false" title="Toggle high contrast mode">◑ High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false" title="Toggle large text">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false" title="Toggle eye tracking simulation">👁 Eye Tracking</button>
+  </div>
+</nav>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+        <p style="margin-top:0.75rem;font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);">Built with WCAG 2.1 AA compliance in mind.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Ref</a></li>
+          <li><a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/" target="_blank" rel="noopener">Accessible Canada Act</a></li>
+          <li><a href="https://www.ontario.ca/page/accessibility-in-ontario" target="_blank" rel="noopener">AODA Ontario</a></li>
+          <li><a href="https://webaim.org/projects/million/" target="_blank" rel="noopener">WebAIM Million Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges">
+        <span class="badge">WCAG 2.1 AA</span>
+        <span class="badge">Accessible Canada Act</span>
+        <span class="badge">Open Source</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
