@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - AccessWeb</title>
+  <meta name="description" content="About the AccessWeb project: WCAG principles, the Accessible Canada Act, and the mission of inclusive design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true"></div>
+<div id="gaze-cursor" aria-hidden="true"><div class="gaze-ring"></div></div>
+<div id="sr-overlay" role="status" aria-live="polite">
+  <div class="sr-label">🔊 Screen Reader Output</div>
+  <div id="sr-text">Screen reader active.</div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false">🔊 Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false">◑ High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">👁 Eye Tracking</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <div class="page-tag">About This Project</div>
+      <h1 id="page-heading">Built on <span class="accent">WCAG</span> &amp;<br>the <span class="accent2">Accessible</span><br>Canada Act</h1>
+      <p>Understanding the principles, laws, and ethical obligations that shape inclusive design, and why they matter for digital citizenship.</p>
+    </div>
+  </div>
+
+  <!-- WCAG PRINCIPLES -->
+  <section id="principles" aria-labelledby="principles-heading">
+    <div class="container">
+      <span class="section-tag">WCAG 2.1 Framework</span>
+      <h2 id="principles-heading" class="reveal">The Four POUR Principles</h2>
+      <p class="section-intro reveal">Every WCAG guideline traces back to four core principles. Content must be Perceivable, Operable, Understandable, and Robust.</p>
+      <div class="principles-grid">
+
+        <article class="principle-card reveal" tabindex="0" aria-label="Perceivable principle">
+          <div class="principle-header">
+            <div class="principle-icon" aria-hidden="true">👁️</div>
+            <div>
+              <div class="principle-title">Perceivable</div>
+              <div class="principle-subtitle">WCAG Principle 1</div>
+            </div>
+          </div>
+          <p class="principle-body">Information and user interface components must be presented in ways that users can perceive, meaning no content should be invisible to all of a user's senses.</p>
+          <ul class="criteria-list" aria-label="Perceivable criteria examples">
+            <li>Text alternatives for all non-text content (images, icons)</li>
+            <li>Captions and audio descriptions for video</li>
+            <li>Content adaptable without losing information or structure</li>
+            <li>Sufficient colour contrast for text (4.5:1 minimum)</li>
+          </ul>
+        </article>
+
+        <article class="principle-card reveal" tabindex="0" aria-label="Operable principle">
+          <div class="principle-header">
+            <div class="principle-icon" aria-hidden="true">⌨️</div>
+            <div>
+              <div class="principle-title">Operable</div>
+              <div class="principle-subtitle">WCAG Principle 2</div>
+            </div>
+          </div>
+          <p class="principle-body">User interface components and navigation must be operable by all users, including those who cannot use a mouse or touchscreen.</p>
+          <ul class="criteria-list" aria-label="Operable criteria examples">
+            <li>All functionality available via keyboard alone</li>
+            <li>No keyboard traps. Users can always navigate away</li>
+            <li>No content that flashes more than three times per second</li>
+            <li>Skip navigation links and meaningful page titles</li>
+          </ul>
+        </article>
+
+        <article class="principle-card reveal" tabindex="0" aria-label="Understandable principle">
+          <div class="principle-header">
+            <div class="principle-icon" aria-hidden="true">📖</div>
+            <div>
+              <div class="principle-title">Understandable</div>
+              <div class="principle-subtitle">WCAG Principle 3</div>
+            </div>
+          </div>
+          <p class="principle-body">Information and the operation of the user interface must be understandable, meaning users must be able to comprehend both the content and how to operate controls.</p>
+          <ul class="criteria-list" aria-label="Understandable criteria examples">
+            <li>Page language declared in HTML for screen readers</li>
+            <li>Predictable navigation. No unexpected context changes</li>
+            <li>Error messages that identify and describe the problem clearly</li>
+            <li>Labels for all form inputs and controls</li>
+          </ul>
+        </article>
+
+        <article class="principle-card reveal" tabindex="0" aria-label="Robust principle">
+          <div class="principle-header">
+            <div class="principle-icon" aria-hidden="true">🔩</div>
+            <div>
+              <div class="principle-title">Robust</div>
+              <div class="principle-subtitle">WCAG Principle 4</div>
+            </div>
+          </div>
+          <p class="principle-body">Content must be robust enough that it can be reliably interpreted by a wide variety of user agents, including current and future assistive technologies.</p>
+          <ul class="criteria-list" aria-label="Robust criteria examples">
+            <li>Valid, well-formed HTML to ensure correct parsing</li>
+            <li>Name, role, and value set for all UI components</li>
+            <li>Status messages communicated to assistive tech without focus</li>
+            <li>ARIA landmarks and roles used correctly</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDING QUESTIONS -->
+  <section id="questions" aria-labelledby="questions-heading">
+    <div class="container">
+      <span class="section-tag">Guiding Questions</span>
+      <h2 id="questions-heading" class="reveal">Questions That Drive This Project</h2>
+      <p class="section-intro reveal">Three core questions about digital citizenship, developer responsibility, and inclusive design underpin everything here.</p>
+      <div class="questions-grid">
+        <div class="question-card reveal" tabindex="0" role="article">
+          <div class="q-num" aria-hidden="true">01</div>
+          <p class="q-text">"How much should developers be liable for ensuring that their digital services are available to people with different kinds of disabilities to use?"</p>
+        </div>
+        <div class="question-card reveal" tabindex="0" role="article">
+          <div class="q-num" aria-hidden="true">02</div>
+          <p class="q-text">"How could creating accessibility standards for regulating the internet, similar to other infrastructure, support and increase 'digital equality' and help all people to participate in digital communities?"</p>
+        </div>
+        <div class="question-card reveal" tabindex="0" role="article">
+          <div class="q-num" aria-hidden="true">03</div>
+          <p class="q-text">"How does using accessibility design enable people with disabilities to have a greater chance of participating in digital communities?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT PLAN -->
+  <section id="project" aria-labelledby="project-heading">
+    <div class="container">
+      <div class="project-layout">
+        <div class="project-text reveal">
+          <span class="section-tag">Project Overview</span>
+          <h2 id="project-heading">Who Benefits &amp; Why It Was Built</h2>
+          <p>Accessibility is too often considered an available add-on rather than a necessary component of digital citizenship. With more governments, education, and essential services moving to online platforms, inaccessible design limits opportunities for full participation in digital society.</p>
+          <p>This project demonstrates that inclusive design provides equal access to information and strengthens digital communities. It is built for novice web developers, designers, and educators who may not be aware of the barriers created by inaccessible design.</p>
+          <div class="callout-box" role="note">
+            <p>Through social media, developer forums, and accessibility awareness events, this site can be shared as an interactive way for communities to learn and understand the importance of inclusive design choices.</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="section-tag">Project Timeline</span>
+          <div class="timeline" role="list" aria-label="Project development timeline">
+            <div class="timeline-item" role="listitem">
+              <div class="tl-dot" aria-hidden="true">W6</div>
+              <div class="tl-content">
+                <div class="tl-week">Week 6</div>
+                <div class="tl-title">Research Phase</div>
+                <div class="tl-body">Find specific WCAG criteria for keyboard navigation, eye tracking compatibility, and screen reader standards.</div>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="tl-dot" aria-hidden="true">W7</div>
+              <div class="tl-content">
+                <div class="tl-week">Week 7</div>
+                <div class="tl-title">Site Structure</div>
+                <div class="tl-body">Build site structure with high contrast elements, semantic HTML, and screen reader tags throughout.</div>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="tl-dot" aria-hidden="true">W8</div>
+              <div class="tl-content">
+                <div class="tl-week">Week 8</div>
+                <div class="tl-title">Gaze Tracking Model</div>
+                <div class="tl-body">Develop the gaze tracking simulation, which is a mapping cursor movement to simulate eye-based dwell-click interaction.</div>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="tl-dot" aria-hidden="true">W9</div>
+              <div class="tl-content">
+                <div class="tl-week">Week 9</div>
+                <div class="tl-title">Testing</div>
+                <div class="tl-body">Test the site with keyboard-only, screen reader, gaze, and high contrast inputs to ensure all modes work correctly.</div>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="tl-dot" aria-hidden="true">W10</div>
+              <div class="tl-content">
+                <div class="tl-week">Week 10</div>
+                <div class="tl-title">Submission</div>
+                <div class="tl-body">Final submission and documentation.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Ref</a></li>
+          <li><a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/" target="_blank" rel="noopener">Accessible Canada Act</a></li>
+          <li><a href="https://www.ontario.ca/page/accessibility-in-ontario" target="_blank" rel="noopener">AODA Ontario</a></li>
+          <li><a href="https://webaim.org/projects/million/" target="_blank" rel="noopener">WebAIM Million Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges"><span class="badge">WCAG 2.1 AA</span><span class="badge">Accessible Canada Act</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/gaze.js"></script>
+</body>
+</html>
