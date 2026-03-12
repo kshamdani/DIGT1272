@@ -1,66 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - AccessibleWeb</title>
-    <link href="styles.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Accessible Internet Project</title>
+  <meta name="description" content="An interactive learning experience about web accessibility, WCAG standards, and inclusive design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
 </head>
 <body>
-    <header>
-        <h1>AccessibleWeb</h1>
-        <hr>
-    </header>
 
-    <nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true"></div>
+<div id="gaze-cursor" aria-hidden="true"><div class="gaze-ring"></div></div>
+<div id="sr-overlay" role="status" aria-live="polite" aria-label="Screen reader simulation">
+  <div class="sr-label">🔊 Screen Reader Output</div>
+  <div id="sr-text">Hover over elements to hear screen reader announcements...</div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo" aria-label="AccessWeb — Home">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false">🔊 Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false">◑ High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">👁 Eye Tracking</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag" role="note">Digital Citizenship · Week 4 · The Accessible Internet</div>
+        <h1 id="hero-heading">
+          The Web Should<br>Work for <span class="accent">Everyone</span>.<br>Not <span class="accent2">Almost</span> Everyone.
+        </h1>
+        <p class="hero-desc">
+          An interactive exploration of web accessibility, WCAG standards, and how inclusive design determines who gets to participate in our digital world.
+        </p>
+        <div class="hero-actions">
+          <a href="demos.html" class="btn-primary">Try the Demos →</a>
+          <a href="about.html" class="btn-secondary">Learn the Standards</a>
+        </div>
+        <div class="hero-stats" role="list" aria-label="Key accessibility statistics">
+          <div class="stat" role="listitem">
+            <span class="stat-num">1.3B</span>
+            <span class="stat-label">People w/ disabilities globally</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-num">96%</span>
+            <span class="stat-label">Of top sites have WCAG failures</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-num">4</span>
+            <span class="stat-label">WCAG core principles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" aria-labelledby="features-heading">
+    <div class="container">
+      <span class="section-tag">Explore the Project</span>
+      <h2 id="features-heading" class="reveal">Everything You'll Find Here</h2>
+      <p class="section-intro reveal">Five pages covering the full landscape of web accessibility — from principles to hands-on demos.</p>
+      <div class="features-grid">
+        <a href="about.html" class="feature-card reveal" aria-label="About page — WCAG principles and project overview">
+          <div class="feature-icon" aria-hidden="true">📖</div>
+          <div class="feature-title">About</div>
+          <div class="feature-desc">The WCAG POUR principles, the Accessible Canada Act, and why this project exists.</div>
+          <div class="feature-link">Explore →</div>
+        </a>
+        <a href="demos.html" class="feature-card reveal" aria-label="Demos page — interactive accessibility tools">
+          <div class="feature-icon" aria-hidden="true">🛠️</div>
+          <div class="feature-title">Interactive Demos</div>
+          <div class="feature-desc">Experience screen readers, keyboard navigation, eye tracking, and contrast tools firsthand.</div>
+          <div class="feature-link">Try it →</div>
+        </a>
+        <a href="standards.html" class="feature-card reveal" aria-label="Standards page — WCAG, Accessible Canada Act, AODA">
+          <div class="feature-icon" aria-hidden="true">⚖️</div>
+          <div class="feature-title">Standards</div>
+          <div class="feature-desc">The legal and technical frameworks — WCAG 2.1, the ACA, and AODA — that govern accessible design.</div>
+          <div class="feature-link">Read more →</div>
+        </a>
+        <a href="why.html" class="feature-card reveal" aria-label="Why It Matters page — impact and digital citizenship">
+          <div class="feature-icon" aria-hidden="true">🌐</div>
+          <div class="feature-title">Why It Matters</div>
+          <div class="feature-desc">Real-world impact: healthcare, education, civic participation, and the meaning of digital equality.</div>
+          <div class="feature-link">Learn more →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+        <p style="margin-top:0.75rem;font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);">Built with WCAG 2.1 AA compliance in mind.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
         <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="features.html">Features</a>
-            </li>
-            <li>
-                <a href="wcag-guide.html">WCAG Guide</a>
-            </li>
-            <li>
-                <a href="tools.html">Tools</a>
-            </li>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
         </ul>
-        <hr>
-    </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Ref</a></li>
+          <li><a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/" target="_blank" rel="noopener">Accessible Canada Act</a></li>
+          <li><a href="https://www.ontario.ca/page/accessibility-in-ontario" target="_blank" rel="noopener">AODA Ontario</a></li>
+          <li><a href="https://webaim.org/projects/million/" target="_blank" rel="noopener">WebAIM Million Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges">
+        <span class="badge">WCAG 2.1 AA</span>
+        <span class="badge">Accessible Canada Act</span>
+        <span class="badge">Open Source</span>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    <main>
-        <section>
-            <h2>Why Accessibility Matters</h2>
-            <p>In today's digital society, web accessibility is not a luxury—it's a fundamental right. As more governments, education systems, and essential services move online, people with disabilities face real barriers to participation.</p>
-            <p><strong>Inclusive design strengthens digital communities for everyone.</strong></p>
-            
-            <h3>Key Statistics</h3>
-            <ul>
-                <li><strong>1 in 5</strong> Canadians have a disability</li>
-                <li><strong>WCAG 2.1</strong> is the global accessibility standard</li>
-                <li><strong>100%</strong> of digital content can be accessible</li>
-            </ul>
-        </section>
-        <hr>
-
-        <section>
-            <h2>Accessibility Features</h2>
-           
-            
-            <h3>Screen Reader Simulation</h3>
-          
-            <h3>High Contrast Mode</h3>
-           
-            <h3>Keyboard Navigation</h3>
-           
-            
-            <h3>Text Scaling</h3>
-           
-         
-            <h3>Reduced Motion</h3>
-           
-    </main>
+<script src="js/main.js"></script>
 </body>
 </html>
