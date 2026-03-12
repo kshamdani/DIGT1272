@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Standards - AccessWeb</title>
+  <meta name="description" content="The legal and technical standards governing web accessibility: WCAG 2.1, the Accessible Canada Act, and AODA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true"></div>
+<div id="gaze-cursor" aria-hidden="true"><div class="gaze-ring"></div></div>
+<div id="sr-overlay" role="status" aria-live="polite">
+  <div class="sr-label">🔊 Screen Reader Output</div>
+  <div id="sr-text">Screen reader active.</div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false">🔊 Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false">◑ High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">👁 Eye Tracking</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <div class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <div class="page-tag">Legal &amp; Technical Standards</div>
+      <h1 id="page-heading">The Rules That<br>Govern <span class="accent">Accessible</span><br><span class="accent2">Design</span></h1>
+      <p>Three key frameworks define the legal and ethical obligations of web developers in Canada and globally, from international guidelines to federal and provincial law.</p>
+    </div>
+  </div>
+
+  <!-- STANDARDS CARDS -->
+  <section id="standards-cards" aria-labelledby="standards-heading">
+    <div class="container">
+      <span class="section-tag">Three Key Frameworks</span>
+      <h2 id="standards-heading" class="reveal">Governing Frameworks</h2>
+      <div class="standards-stack">
+
+        <article class="std-card reveal" tabindex="0" aria-label="WCAG 2.1 Web Content Accessibility Guidelines">
+          <div class="std-left">
+            <div class="std-num" aria-hidden="true">01</div>
+            <div class="std-label">W3C International</div>
+          </div>
+          <div class="std-right">
+            <h3>WCAG 2.1: Web Content Accessibility Guidelines</h3>
+            <p>Published by the World Wide Web Consortium (W3C), WCAG 2.1 is the globally recognized technical standard for web accessibility. It defines three levels of conformance across 13 guidelines built on the four POUR principles.</p>
+            <p>Most legal mandates worldwide reference WCAG 2.1 Level AA as the minimum compliance target. Level AA covers 50 success criteria addressing the most significant barriers for people with disabilities.</p>
+            <div class="std-highlights">
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Level A:</strong> The minimum is the failure to meet these criteria makes content inaccessible to some users entirely.</p>
+              </div>
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Level AA:</strong> The standard legal requirement addresses the widest and most critical barriers.</p>
+              </div>
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Level AAA:</strong> The highest level is recommended for content primarily serving people with disabilities.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="std-card reveal" tabindex="0" aria-label="Accessible Canada Act">
+          <div class="std-left">
+            <div class="std-num" aria-hidden="true">02</div>
+            <div class="std-label">Canadian Federal Law</div>
+          </div>
+          <div class="std-right">
+            <h3>Accessible Canada Act (ACA) - 2019</h3>
+            <p>Canada's Accessible Canada Act came into force in 2019 with the goal of creating a barrier-free Canada by 2040. It mandates that federally regulated entities (including banks, broadcasters, and federal government) identify, remove, and prevent barriers across all areas including ICT systems.</p>
+            <p>Organizations must publish accessibility plans, track progress, and respond to feedback. Compliance is enforced by the Accessibility Commissioner, with administrative monetary penalties for non-compliance.</p>
+            <div class="std-highlights">
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Scope:</strong> Federal government, Crown corporations, federally regulated industries (transport, banking, telecom).</p>
+              </div>
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>ICT requirements:</strong> Digital services, websites, and software must be accessible to employees and the public.</p>
+              </div>
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Reporting:</strong> Annual progress reports and accessibility plans must be published and open to feedback.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="std-card reveal" tabindex="0" aria-label="AODA - Accessibility for Ontarians with Disabilities Act">
+          <div class="std-left">
+            <div class="std-num" aria-hidden="true">03</div>
+            <div class="std-label">Ontario Provincial Law</div>
+          </div>
+          <div class="std-right">
+            <h3>AODA / Integrated Accessibility Standards Regulation</h3>
+            <p>Ontario's Accessibility for Ontarians with Disabilities Act (AODA) was passed in 2005, establishing a framework for developing mandatory accessibility standards. The Integrated Accessibility Standards Regulation (IASR) directly governs websites and web content for public and private organizations in Ontario.</p>
+            <p>Organizations with 50+ employees were required to meet WCAG 2.0 Level AA by January 2021. The Information and Communications Standard under IASR covers websites, web content, and web-based applications.</p>
+            <div class="std-highlights">
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Public sector:</strong> Required WCAG 2.0 AA compliance for all web content by 2016.</p>
+              </div>
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Private sector (50+ employees):</strong> Full WCAG 2.0 AA required by 2021.</p>
+              </div>
+              <div class="highlight-item">
+                <div class="h-dot" aria-hidden="true"></div>
+                <p><strong>Enforcement:</strong> Directors of the Accessibility Directorate of Ontario conduct compliance audits.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WCAG LEVELS -->
+  <section id="wcag-levels" aria-labelledby="levels-heading">
+    <div class="container">
+      <span class="section-tag">WCAG Conformance</span>
+      <h2 id="levels-heading" class="reveal">Understanding Conformance Levels</h2>
+      <p class="section-intro reveal">WCAG success criteria are organized into three conformance levels. Meeting higher levels means reducing more barriers for more users.</p>
+      <div class="levels-grid">
+        <div class="level-card reveal" tabindex="0" role="article" aria-label="Level A - Minimum conformance">
+          <div class="level-badge" aria-hidden="true">A</div>
+          <div class="level-name">Level A: Minimum</div>
+          <div class="level-desc">The baseline. Failure to meet these criteria makes content inaccessible or unusable for some users. Covers 30 success criteria including keyboard access and alt text.</div>
+          <span class="level-tag">30 Success Criteria</span>
+        </div>
+        <div class="level-card reveal" tabindex="0" role="article" aria-label="Level AA - Standard conformance">
+          <div class="level-badge" aria-hidden="true">AA</div>
+          <div class="level-name">Level AA: Standard</div>
+          <div class="level-desc">The legal and industry standard. Addresses the most significant barriers. Required by the ACA, AODA, EU Web Accessibility Directive, and Section 508 in the US. Covers 50 total criteria.</div>
+          <span class="level-tag">50 Success Criteria</span>
+        </div>
+        <div class="level-card reveal" tabindex="0" role="article" aria-label="Level AAA - Enhanced conformance">
+          <div class="level-badge" aria-hidden="true">AAA</div>
+          <div class="level-name">Level AAA: Enhanced</div>
+          <div class="level-desc">The highest level. Not required for entire sites (some criteria cannot be universally applied), but recommended for content specifically targeting people with disabilities. 78 total criteria.</div>
+          <span class="level-tag">78 Success Criteria</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPER LIABILITY -->
+  <section id="liability" aria-labelledby="liability-heading">
+    <div class="container">
+      <div class="liability-layout">
+        <div class="liability-text reveal">
+          <span class="section-tag">Developer Responsibility</span>
+          <h2 id="liability-heading">How Liable Should Developers Be?</h2>
+          <p>One of the central questions of this project: how much legal and ethical responsibility should developers bear for ensuring their digital services are accessible to people with disabilities?</p>
+          <p>Legal frameworks like the ACA and AODA say organizations are liable, but most enforcement focuses on large institutions rather than individual developers. The ethical question runs deeper: when you build something inaccessible, who is responsible for the exclusion that follows?</p>
+          <blockquote>
+            <p>"Accessibility is not a feature — it is a social trend." The longer accessible design is treated as optional, the more people are excluded from digital civic life.</p>
+          </blockquote>
+        </div>
+        <div class="reveal">
+          <h3 style="margin-bottom:1.5rem;">Arguments in the Debate</h3>
+          <div class="pros-cons">
+            <div class="side-card">
+              <h4>For Stronger Liability</h4>
+              <ul class="side-list" aria-label="Arguments for stronger developer liability">
+                <li>Exclusion causes real, measurable harm to users</li>
+                <li>Legal accountability drives adoption of accessible practices</li>
+                <li>Infrastructure analogy: buildings must be accessible, so must websites</li>
+                <li>Standards like WCAG make compliance achievable and testable</li>
+                <li>Retrofitting costs more than designing accessibly from the start</li>
+              </ul>
+            </div>
+            <div class="side-card">
+              <h4>Considerations &amp; Tensions</h4>
+              <ul class="side-list" aria-label="Tensions and considerations in developer liability">
+                <li>Small developers may lack resources without support or guidance</li>
+                <li>Edge cases in accessibility can be genuinely complex to solve</li>
+                <li>Liability without education risks punishing ignorance over intent</li>
+                <li>Organizational vs. individual liability needs clear legal distinction</li>
+                <li>Enforcement must be proportionate and context-sensitive</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Official Sources</h4>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Ref</a></li>
+          <li><a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/" target="_blank" rel="noopener">Accessible Canada Act</a></li>
+          <li><a href="https://www.ontario.ca/page/accessibility-in-ontario" target="_blank" rel="noopener">AODA Ontario</a></li>
+          <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener">W3C WCAG Overview</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges"><span class="badge">WCAG 2.1 AA</span><span class="badge">Accessible Canada Act</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
