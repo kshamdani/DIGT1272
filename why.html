@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why It Matters - AccessWeb</title>
+  <meta name="description" content="Why web accessibility is a digital citizenship issue, such as healthcare, education, civic participation, and digital equality." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true"></div>
+<div id="gaze-cursor" aria-hidden="true"><div class="gaze-ring"></div></div>
+<div id="sr-overlay" role="status" aria-live="polite">
+  <div class="sr-label">Screen Reader Output</div>
+  <div id="sr-text">Screen reader active.</div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false">Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false">High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">Eye Tracking</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <div class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <div class="page-tag">Why It Matters</div>
+      <h1 id="page-heading">Accessibility Is<br><span class="accent">Digital</span><br><span class="accent2">Citizenship</span></h1>
+      <p>When essential services exist only online, inaccessible design isn't a minor inconvenience, it's exclusion from civic and social life. Here's who it affects and why it matters.</p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section id="stats" aria-labelledby="stats-heading">
+    <div class="container">
+      <span class="section-tag">The Scale of the Problem</span>
+      <h2 id="stats-heading" class="reveal" style="margin-bottom:2.5rem;">By the Numbers</h2>
+      <div class="stats-row">
+        <div class="stat-card reveal" tabindex="0">
+          <div class="stat-big">1.3B</div>
+          <div class="stat-label">People globally living with a significant disability</div>
+        </div>
+        <div class="stat-card reveal" tabindex="0">
+          <div class="stat-big">96.3%</div>
+          <div class="stat-label">Of top 1M homepages with detectable WCAG failures (WebAIM, 2023)</div>
+        </div>
+        <div class="stat-card reveal" tabindex="0">
+          <div class="stat-big">22%</div>
+          <div class="stat-label">Of Canadians 15+ living with a disability that affects internet use</div>
+        </div>
+        <div class="stat-card reveal" tabindex="0">
+          <div class="stat-big">50+</div>
+          <div class="stat-label">Average number of distinct WCAG errors found per page tested</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT AREAS -->
+  <section id="impact" aria-labelledby="impact-heading">
+    <div class="container">
+      <span class="section-tag">Real-World Impact</span>
+      <h2 id="impact-heading" class="reveal">Where Inaccessible Design Does Real Harm</h2>
+      <p class="section-intro reveal">Inaccessibility isn't abstract. It shuts specific doors for specific people across every area of daily life.</p>
+      <div class="impact-grid">
+
+        <article class="impact-card reveal" tabindex="0" aria-label="Healthcare impact">
+          <div class="impact-header">
+            <div class="impact-emoji" aria-hidden="true">🏥</div>
+            <div>
+              <div class="impact-title">Healthcare</div>
+              <div class="impact-sub">Critical access at risk</div>
+            </div>
+          </div>
+          <p class="impact-body">Healthcare booking systems, prescription refills, and telehealth platforms routinely fail accessibility audits, which are putting medical access at risk for the people who need it most.</p>
+          <div class="impact-examples" aria-label="Healthcare accessibility examples">
+            <div class="impact-example">Appointment booking portals that require mouse interaction to select time slots</div>
+            <div class="impact-example">Telehealth video platforms with no keyboard-accessible controls</div>
+            <div class="impact-example">Prescription refill apps without screen reader support</div>
+            <div class="impact-example">Medical forms with inaccessible CAPTCHA challenges</div>
+          </div>
+        </article>
+
+        <article class="impact-card reveal" tabindex="0" aria-label="Education impact">
+          <div class="impact-header">
+            <div class="impact-emoji" aria-hidden="true">🎓</div>
+            <div>
+              <div class="impact-title">Education</div>
+              <div class="impact-sub">Learning barriers online</div>
+            </div>
+          </div>
+          <p class="impact-body">Students with visual, motor, or cognitive disabilities face barriers in e-learning platforms, digital libraries, and academic tools that rely on inaccessible designs and formats.</p>
+          <div class="impact-examples" aria-label="Education accessibility examples">
+            <div class="impact-example">PDF uploads without tagged structure or alt text</div>
+            <div class="impact-example">Video lectures without captions or transcripts</div>
+            <div class="impact-example">LMS platforms with mouse-only drag-and-drop interfaces</div>
+            <div class="impact-example">Online exams with timed components and no time extension support</div>
+          </div>
+        </article>
+
+        <article class="impact-card reveal" tabindex="0" aria-label="Employment impact">
+          <div class="impact-header">
+            <div class="impact-emoji" aria-hidden="true">💼</div>
+            <div>
+              <div class="impact-title">Employment</div>
+              <div class="impact-sub">Economic exclusion</div>
+            </div>
+          </div>
+          <p class="impact-body">People with disabilities are blocked from online job applications, banking, and professional tools when interfaces lack keyboard support or screen reader compatibility, creating economic exclusion.</p>
+          <div class="impact-examples" aria-label="Employment accessibility examples">
+            <div class="impact-example">Job application portals with inaccessible file upload components</div>
+            <div class="impact-example">Online banking with poor screen reader support for transactions</div>
+            <div class="impact-example">HR onboarding tools that require mouse-only form completion</div>
+            <div class="impact-example">Remote work video tools with no captioning or keyboard shortcuts</div>
+          </div>
+        </article>
+
+        <article class="impact-card reveal" tabindex="0" aria-label="Civic participation impact">
+          <div class="impact-header">
+            <div class="impact-emoji" aria-hidden="true">🗳️</div>
+            <div>
+              <div class="impact-title">Civic Participation</div>
+              <div class="impact-sub">Democratic access</div>
+            </div>
+          </div>
+          <p class="impact-body">Voting information, government consultations, benefit applications, and civic engagement tools remain out of reach for millions due to avoidable design decisions that undermine democratic participation.</p>
+          <div class="impact-examples" aria-label="Civic participation accessibility examples">
+            <div class="impact-example">Government benefit applications that fail keyboard navigation</div>
+            <div class="impact-example">Public consultation forms with inaccessible date pickers</div>
+            <div class="impact-example">Emergency service websites without high contrast modes</div>
+            <div class="impact-example">Voting registration portals with image-only CAPTCHA</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIVERSAL DESIGN -->
+  <section id="universal" aria-labelledby="universal-heading">
+    <div class="container">
+      <div class="universal-layout">
+        <div class="universal-text reveal">
+          <span class="section-tag">The Universal Design Argument</span>
+          <h2 id="universal-heading">Accessibility Helps <em>Everyone</em></h2>
+          <p>One of the most important (and underappreciated) truths about accessible design: it benefits far more people than those with permanent disabilities.</p>
+          <p>The curb-cut effect demonstrates this perfectly. Curb cuts were introduced for wheelchair users, but benefit people pushing strollers, cyclists, delivery workers, and anyone with a temporary injury.</p>
+          <p>The same principle applies to digital design: features built for accessibility create a better experience for everyone, in all circumstances.</p>
+          <blockquote>
+            <p>"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."</p>
+            <cite>— Tim Berners-Lee, inventor of the World Wide Web</cite>
+          </blockquote>
+        </div>
+        <div class="reveal">
+          <h3 style="margin-bottom:1.5rem;">Who Benefits from Accessible Design</h3>
+          <div class="benefits-grid" role="list" aria-label="Groups that benefit from accessible design">
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-title">Bright Sunlight</div>
+              <div class="benefit-desc">High contrast mode helps anyone using a phone outdoors in glare</div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-title">Temporary Injury</div>
+              <div class="benefit-desc">A broken arm makes keyboard navigation essential for anyone</div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-title">Noisy Environment</div>
+              <div class="benefit-desc">Video captions help anyone watching without audio in public</div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-title">Power Users</div>
+              <div class="benefit-desc">Keyboard shortcuts built for accessibility speed up workflows for everyone</div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-title">Ageing Population</div>
+              <div class="benefit-desc">Large text and clear contrast support users whose vision changes over time</div>
+            </div>
+            <div class="benefit-item" role="listitem">
+              <div class="benefit-title">Second Language</div>
+              <div class="benefit-desc">Plain language and clear structure helps non-native speakers understand content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="section-tag" style="justify-content:center;display:flex;">Get Started</span>
+        <h2 id="cta-heading">Ready to Build More Inclusively?</h2>
+        <p>Explore the interactive demos to experience accessibility tools firsthand, or read about the standards and legal frameworks that make inclusive design a requirement, not an option.</p>
+        <div class="cta-actions">
+          <a href="demos.html" class="btn-primary">Try the Demos →</a>
+          <a href="standards.html" class="btn-secondary">Read the Standards</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Further Reading</h4>
+        <ul>
+          <li><a href="https://webaim.org/projects/million/" target="_blank" rel="noopener">WebAIM Million Report</a></li>
+          <li><a href="https://www.w3.org/WAI/perspective-videos/" target="_blank" rel="noopener">W3C Perspective Videos</a></li>
+          <li><a href="https://www.canada.ca/en/employment-social-development/programs/accessible-canada.html" target="_blank" rel="noopener">Accessible Canada Program</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges"><span class="badge">WCAG 2.1 AA</span><span class="badge">Accessible Canada Act</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/gaze.js"></script>
+</body>
+</html>
