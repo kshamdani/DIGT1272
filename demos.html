@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Demos - AccessWeb</title>
+  <meta name="description" content="Try screen reader simulation, keyboard navigation, eye tracking, and contrast tools to experience accessibility firsthand." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true"></div>
+<div id="gaze-cursor" aria-hidden="true"><div class="gaze-ring"></div></div>
+<div id="sr-overlay" role="status" aria-live="polite">
+  <div class="sr-label">Screen Reader Output</div>
+  <div id="sr-text">Screen reader active.</div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false">Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false">High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">Eye Tracking</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <div class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <div class="page-tag">Interactive Demos</div>
+      <h1 id="page-heading">Experience <span class="accent">Accessibility</span><br>Tools <span class="accent3">Firsthand</span></h1>
+      <p>Four interactive demos that let you see, hear, and feel how assistive technologies work, and why design choices matter.</p>
+    </div>
+  </div>
+
+  <section id="demos-section" aria-labelledby="demos-heading">
+    <div class="container">
+      <h2 id="demos-heading" class="reveal" style="margin-bottom:1.5rem;">Choose a Demo</h2>
+
+      <!-- TAB BAR -->
+      <div class="tab-bar" role="tablist" aria-label="Accessibility demo tabs">
+        <button class="demo-tab active" role="tab" aria-selected="true"  aria-controls="panel-sr"       id="tab-sr">🔊 Screen Reader</button>
+        <button class="demo-tab"        role="tab" aria-selected="false" aria-controls="panel-keyboard" id="tab-keyboard">⌨️ Keyboard Nav</button>
+        <button class="demo-tab"        role="tab" aria-selected="false" aria-controls="panel-gaze"     id="tab-gaze">👁 Eye Tracking</button>
+        <button class="demo-tab"        role="tab" aria-selected="false" aria-controls="panel-contrast" id="tab-contrast">◑ Contrast</button>
+      </div>
+
+      <!-- SCREEN READER -->
+      <div class="demo-panel active" id="panel-sr" role="tabpanel" aria-labelledby="tab-sr">
+        <div class="sr-layout">
+          <div class="demo-card">
+            <h3>Interactive Page Elements</h3>
+            <p class="subtitle">Click any element to hear how a screen reader would announce it. Actual audio plays if your browser supports it.</p>
+            <button class="sr-element" data-sr="Button. Submit Form. Press Space or Enter to activate." aria-label="Submit Form example button">
+              <div class="el-type">button</div>
+              <div class="el-text">Submit Form</div>
+            </button>
+            <button class="sr-element" data-sr="Image. Alt text: A person using a laptop with a braille display. Decorative images should have empty alt text." aria-label="Image with alt text example">
+              <div class="el-type">img [alt]</div>
+              <div class="el-text">Photo: "Person using braille display"</div>
+            </button>
+            <button class="sr-element" data-sr="Link. Visit WCAG Guidelines. Opens in new tab." aria-label="Link element example">
+              <div class="el-type">a [href]</div>
+              <div class="el-text">Visit WCAG Guidelines</div>
+            </button>
+            <button class="sr-element" data-sr="Heading level 2. About This Project. Screen readers let users navigate by headings using the H key." aria-label="Heading element example">
+              <div class="el-type">h2</div>
+              <div class="el-text">About This Project</div>
+            </button>
+            <button class="sr-element" data-sr="Text input. Email address. Required field. Enter a valid email address in the format user@example.com." aria-label="Required form input example">
+              <div class="el-type">input [required]</div>
+              <div class="el-text">Email address (required field)</div>
+            </button>
+            <button class="sr-element" data-sr="Warning. Image missing alt attribute. Screen reader users cannot understand this image. This is an accessibility failure." aria-label="Missing alt text error example">
+              <div class="el-type">img [no alt]</div>
+              <div class="el-text">Image without alt text: inaccessible</div>
+            </button>
+          </div>
+
+          <div class="demo-card" style="background:#0d0d1a;">
+            <h3>Screen Reader Output</h3>
+            <p class="subtitle">Simulates NVDA / JAWS / VoiceOver announcements</p>
+            <div id="sr-output-box" role="log" aria-live="polite" aria-label="Screen reader simulation output">
+              <div class="sr-line">
+                <span class="sr-icon" aria-hidden="true">▶</span>
+                <span class="sr-msg">Click an element on the left to hear it announced...</span>
+              </div>
+            </div>
+            <div class="sr-hint" role="note">
+              <strong style="color:var(--text)">How screen readers work:</strong><br>
+              Screen readers convert text and element metadata into spoken audio. They rely on semantic HTML, ARIA labels, and proper heading structure to give users context and navigation landmarks. Without these, content is invisible.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEYBOARD NAV -->
+      <div class="demo-panel" id="panel-keyboard" role="tabpanel" aria-labelledby="tab-keyboard">
+        <div class="demo-card">
+          <h3>Keyboard Navigation Challenge</h3>
+          <p class="subtitle">Navigate using only Tab, Shift+Tab, Enter, and Space (No mouse allowed!)</p>
+          <div class="kb-grid" role="group" aria-label="Keyboard navigation targets">
+            <div class="kb-target" tabindex="0" role="button" aria-label="Home">
+              <span class="kt-emoji" aria-hidden="true">🏠</span>
+              <div class="kt-label">Home</div>
+            </div>
+            <div class="kb-target" tabindex="0" role="button" aria-label="Search">
+              <span class="kt-emoji" aria-hidden="true">🔍</span>
+              <div class="kt-label">Search</div>
+            </div>
+            <div class="kb-target" tabindex="0" role="button" aria-label="Documents">
+              <span class="kt-emoji" aria-hidden="true">📄</span>
+              <div class="kt-label">Documents</div>
+            </div>
+            <div class="kb-target" tabindex="0" role="button" aria-label="Settings">
+              <span class="kt-emoji" aria-hidden="true">⚙️</span>
+              <div class="kt-label">Settings</div>
+            </div>
+            <div class="kb-target" tabindex="0" role="button" aria-label="Profile">
+              <span class="kt-emoji" aria-hidden="true">👤</span>
+              <div class="kt-label">Profile</div>
+            </div>
+            <div class="kb-target" tabindex="0" role="button" aria-label="Help">
+              <span class="kt-emoji" aria-hidden="true">❓</span>
+              <div class="kt-label">Help</div>
+            </div>
+          </div>
+          <div class="key-legend" role="note">
+            <div class="key-item"><span class="key-badge">Tab</span> Move forward</div>
+            <div class="key-item"><span class="key-badge">Shift</span> + <span class="key-badge">Tab</span> Move back</div>
+            <div class="key-item"><span class="key-badge">Enter</span> / <span class="key-badge">Space</span> Activate</div>
+            <div class="key-item"><span class="key-badge">Esc</span> Cancel</div>
+          </div>
+          <div id="kb-status" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- EYE TRACKING -->
+      <div class="demo-panel" id="panel-gaze" role="tabpanel" aria-labelledby="tab-gaze">
+        <div class="gaze-layout">
+          <div class="demo-card">
+            <h3>Eye Tracking Simulation</h3>
+            <p class="subtitle">Cursor movement simulates gaze coordinates</p>
+            <button class="gaze-toggle" id="gaze-toggle-btn" aria-pressed="false">
+              👁 Enable Eye Tracking
+            </button>
+            <p class="gaze-info">Choose between <strong style="color:var(--text)">real webcam-based tracking</strong> using WebGazer.js, or a <strong style="color:var(--text)">mouse simulation</strong> that works without a camera.</p>
+            <p class="gaze-info">In both modes, hovering over a button for <strong style="color:var(--text)">1.5 seconds</strong> triggers a <em>dwell-click</em>, activating it without any physical click.</p>
+            <div>
+              <div class="dwell-label">Dwell progress</div>
+              <div class="dwell-meter" role="progressbar" aria-label="Dwell timer" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="dwell-fill" id="dwell-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-card">
+            <h3>Gaze Interaction Area</h3>
+            <p class="subtitle">Hold cursor still over a button to activate it</p>
+            <div class="gaze-buttons" role="group" aria-label="Gaze-activated buttons">
+              <button class="gaze-btn" data-action="Play" aria-label="Play"><span class="gaze-icon" aria-hidden="true">▶️</span>Play</button>
+              <button class="gaze-btn" data-action="Stop" aria-label="Stop"><span class="gaze-icon" aria-hidden="true">⏹️</span>Stop</button>
+              <button class="gaze-btn" data-action="Volume" aria-label="Volume"><span class="gaze-icon" aria-hidden="true">🔊</span>Volume</button>
+              <button class="gaze-btn" data-action="Settings" aria-label="Settings"><span class="gaze-icon" aria-hidden="true">⚙️</span>Settings</button>
+            </div>
+            <div id="gaze-log" role="log" aria-live="polite" aria-label="Gaze interaction log">
+              Enable gaze mode above, then hover and hold over any button...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTRAST -->
+      <div class="demo-panel" id="panel-contrast" role="tabpanel" aria-labelledby="tab-contrast">
+        <div class="contrast-compare">
+          <div class="contrast-card bad-contrast" role="region" aria-label="Low contrast failure example">
+            <h3>Low Contrast Design</h3>
+            <p>This text is nearly impossible to read for people with low vision or colour deficiencies. Light grey on light grey creates dangerous ambiguity.</p>
+            <a href="#" onclick="return false;">Read more...</a>
+            <br><span class="ratio-badge ratio-fail" role="note">⚠ ~1.5:1: WCAG FAIL</span>
+          </div>
+          <div class="contrast-card good-contrast" role="region" aria-label="High contrast compliant example">
+            <h3>High Contrast Design</h3>
+            <p>Crisp, readable, and WCAG AA compliant. Strong contrast benefits everyone: in bright sunlight, on ageing screens, or with low vision.</p>
+            <a href="#" onclick="return false;">Read more...</a>
+            <br><span class="ratio-badge ratio-pass" role="note">✓ ~13:1: WCAG AAA PASS</span>
+          </div>
+        </div>
+        <div class="contrast-slider-card">
+          <h3>Live Contrast Explorer</h3>
+          <p class="subtitle">Drag to change text lightness and see real-time WCAG compliance rating</p>
+          <label class="range-label" for="contrast-range">
+            Text lightness: <span id="contrast-val">50%</span>
+          </label>
+          <input type="range" id="contrast-range" min="10" max="95" value="50"
+            aria-label="Text lightness: adjust to change contrast ratio"
+            aria-valuemin="10" aria-valuemax="95" aria-valuenow="50" />
+          <div id="contrast-preview" role="region" aria-live="polite">
+            The quick brown fox jumps over the lazy dog. Accessible design makes information available to everyone regardless of ability.
+          </div>
+          <div id="contrast-rating" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Screen Reader Tools</h4>
+        <ul>
+          <li><a href="https://www.nvaccess.org/" target="_blank" rel="noopener">NVDA (Windows)</a></li>
+          <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE Checker</a></li>
+          <li><a href="https://www.paciellogroup.com/resources/contrastanalyser/" target="_blank" rel="noopener">Contrast Analyser</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges"><span class="badge">WCAG 2.1 AA</span><span class="badge">Accessible Canada Act</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/gaze.js"></script>
+<script>
+// ===== TAB SWITCHING =====
+const tabs = document.querySelectorAll('.demo-tab');
+const panels = document.querySelectorAll('.demo-panel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+    document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
+  });
+  tab.addEventListener('keydown', e => {
+    const idx = [...tabs].indexOf(tab);
+    if (e.key === 'ArrowRight') { tabs[(idx+1)%tabs.length].click(); tabs[(idx+1)%tabs.length].focus(); }
+    if (e.key === 'ArrowLeft')  { tabs[(idx-1+tabs.length)%tabs.length].click(); tabs[(idx-1+tabs.length)%tabs.length].focus(); }
+  });
+});
+
+// ===== SCREEN READER DEMO =====
+const srBox = document.getElementById('sr-output-box');
+function srAnnounce(msg) {
+  const line = document.createElement('div');
+  line.className = 'sr-line';
+  line.innerHTML = '<span class="sr-icon" aria-hidden="true">▶</span><span class="sr-msg"></span>';
+  line.querySelector('.sr-msg').textContent = msg;
+  srBox.appendChild(line);
+  srBox.scrollTop = srBox.scrollHeight;
+  while (srBox.children.length > 7) srBox.removeChild(srBox.firstChild);
+  if (document.getElementById('sr-text')) document.getElementById('sr-text').textContent = msg;
+  window.speakText && window.speakText(msg);
+}
+document.querySelectorAll('.sr-element').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.sr-element').forEach(e => e.classList.remove('focused'));
+    el.classList.add('focused');
+    srAnnounce(el.dataset.sr);
+  });
+  el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); } });
+});
+
+// ===== KEYBOARD NAV DEMO =====
+document.querySelectorAll('.kb-target').forEach(el => {
+  el.addEventListener('focus', () => {
+    document.getElementById('kb-status').textContent = 'Focused: ' + el.getAttribute('aria-label') + ' - press Enter or Space to activate';
+  });
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const orig = { border: el.style.borderColor, bg: el.style.background };
+      el.style.borderColor = 'var(--accent)';
+      el.style.background = 'rgba(124,252,159,0.15)';
+      document.getElementById('kb-status').textContent = '✓ Activated: ' + el.getAttribute('aria-label');
+      setTimeout(() => { el.style.borderColor = orig.border; el.style.background = orig.bg; }, 1200);
+    }
+  });
+});
+
+// ===== EYE TRACKING DEMO delegates to GazeTracker in gaze.js =====
+document.getElementById('gaze-toggle-btn')?.addEventListener('click', function() {
+  const isOn = window.GazeTracker?.mode !== 'off';
+  applyGaze(!isOn);
+});
+
+// Add .dwelling class to .gaze-btn while dwell arc is filling (visual only)
+document.querySelectorAll('.gaze-btn').forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    if (window.GazeTracker?.mode !== 'off') btn.classList.add('dwelling');
+  });
+  btn.addEventListener('mouseleave', () => btn.classList.remove('dwelling'));
+  btn.addEventListener('click', () => {
+    btn.classList.remove('dwelling');
+    btn.classList.add('activated');
+    setTimeout(() => btn.classList.remove('activated'), 1500);
+  });
+});
+
+// ===== CONTRAST DEMO =====
+const cRange = document.getElementById('contrast-range');
+const cPreview = document.getElementById('contrast-preview');
+const cVal = document.getElementById('contrast-val');
+const cRating = document.getElementById('contrast-rating');
+
+cRange.addEventListener('input', () => {
+  const v = +cRange.value;
+  cVal.textContent = v + '%';
+  cRange.setAttribute('aria-valuenow', v);
+  cPreview.style.color = `hsl(220,10%,${v}%)`;
+  let msg, col;
+  if (v >= 70)      { msg = '✓ Excellent: WCAG AAA (≥7:1)'; col = 'var(--accent)'; }
+  else if (v >= 55) { msg = '✓ Good: WCAG AA (≥4.5:1)'; col = 'var(--accent)'; }
+  else if (v >= 40) { msg = '△ Marginal: Large text only (≥3:1)'; col = 'var(--warn)'; }
+  else              { msg = '⚠ Insufficient: WCAG FAIL'; col = 'var(--danger)'; }
+  cRating.textContent = msg; cRating.style.color = col;
+});
+cRange.dispatchEvent(new Event('input'));
+</script>
+</body>
+</html>
