@@ -43,7 +43,7 @@ window.GazeTracker = (() => {
     overlay.innerHTML = `
       <div style="background:#13131a;border:1px solid #2a2a3d;border-radius:20px;
                   padding:2.5rem;max-width:480px;width:90%;text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">👁</div>
+        <div style="font-size:2.5rem;margin-bottom:1rem;"></div>
         <h2 id="gaze-dlg-title" style="font-family:'Syne',sans-serif;font-weight:800;
             font-size:1.4rem;color:#fff;margin-bottom:0.75rem;letter-spacing:-0.03em;">
           Eye Tracking Mode</h2>
@@ -100,7 +100,7 @@ window.GazeTracker = (() => {
   // REAL MODE
   function startReal() {
     mode = 'loading';
-    showBanner('⏳ Loading WebGazer.js…');
+    showBanner('Loading WebGazer.js…');
     loadScript(WEBGAZER_CDN)
       .then(initWebGazer)
       .then(() => { hideBanner(); showCalibrationUI(); })
@@ -173,7 +173,7 @@ window.GazeTracker = (() => {
             font-family:'DM Mono',monospace;font-size:0.62rem;color:#38bdf8;
             background:#13131a;padding:0.2rem 0.5rem;border-radius:6px;
             border:1px solid #2a2a3d;z-index:9501;pointer-events:none;`;
-          lbl.textContent = '📷 Face camera';
+          lbl.textContent = 'Face camera';
           document.body.appendChild(lbl);
         }
       }
@@ -235,7 +235,7 @@ window.GazeTracker = (() => {
           display:flex;align-items:center;justify-content:center;pointer-events:none;">
         <div style="background:rgba(13,13,26,0.96);border:1px solid #2a2a3d;
              border-radius:16px;padding:2rem 2.5rem;text-align:center;max-width:400px;">
-          <div style="font-size:2rem;margin-bottom:1rem;">🎯</div>
+          <div style="font-size:2rem;margin-bottom:1rem;"></div>
           <div style="font-weight:700;color:#fff;margin-bottom:0.75rem;font-size:1.05rem;">
             How to calibrate</div>
           <div style="font-family:'DM Mono',monospace;font-size:0.75rem;
@@ -330,7 +330,7 @@ window.GazeTracker = (() => {
           margin-top:0.6rem;font-family:'DM Mono',monospace;font-size:0.65rem;
           color:#38bdf8;background:none;border:1px solid rgba(56,189,248,0.4);
           border-radius:6px;padding:0.25rem 0.6rem;cursor:pointer;">
-          🎯 Recalibrate</button>
+          Recalibrate</button>
       `, 8000);
     }, 1500);
   }
