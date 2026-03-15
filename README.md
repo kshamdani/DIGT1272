@@ -15,8 +15,6 @@ An interactive website built for the **DIGT 1272: Mobilizing Digital Citizenship
 - [Accessibility Tools](#accessibility-tools)
 - [Eye Tracking](#eye-tracking)
 - [Standards Covered](#standards-covered)
-- [Project Structure](#project-structure)
-- [Running Locally](#running-locally)
 - [Technology Stack](#technology-stack)
 - [Guiding Questions](#guiding-questions)
 
