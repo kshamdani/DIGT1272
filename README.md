@@ -132,7 +132,7 @@ The 9-point calibration screen walks you through clicking each dot 5 times while
 
 ## Standards Covered
 
-### WCAG 2.1 — Web Content Accessibility Guidelines
+### WCAG 2.1: Web Content Accessibility Guidelines
 
 The international technical standard for web accessibility, published by the W3C. Built on four **POUR** principles:
 
@@ -145,11 +145,11 @@ The international technical standard for web accessibility, published by the W3C
 
 **Conformance levels:** A (minimum) · AA (legal standard, 50 criteria) · AAA (enhanced, 78 criteria)
 
-### Accessible Canada Act (ACA) — 2019
+### Accessible Canada Act (ACA) - 2019
 
 Canada's federal law requiring federally regulated organizations to identify, remove, and prevent accessibility barriers in ICT systems. Enforced by the Accessibility Commissioner.
 
-### AODA / IASR — Ontario
+### AODA / IASR - Ontario
 
 Ontario's Accessibility for Ontarians with Disabilities Act requires public and private sector organizations (50+ employees) to meet WCAG 2.0 Level AA. Directly governs websites and web content.
 
