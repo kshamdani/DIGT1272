@@ -126,7 +126,7 @@ Scroll zones are active whenever eye tracking is enabled:
 
 The 9-point calibration screen walks you through clicking each dot 5 times while looking at it. A **Recalibrate** button appears after calibration completes, or you can call `GazeTracker.recalibrate()` from the browser console if accuracy drifts.
 
-> **Note:** Real eye tracking requires the site to be served over `http://localhost` or `https://` and the webcam API does not work when opening HTML files directly. TO ensure eye tracking works as expected, use the feature on the hosted website (link has been provided above).
+> **Note:** Real eye tracking requires the site to be served over `http://localhost` or `https://` and the webcam API does not work when opening HTML files directly. To ensure eye tracking works as expected, use the feature on the hosted website (link has been provided above).
 
 ---
 
