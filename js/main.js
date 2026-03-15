@@ -203,7 +203,7 @@ window.handleGazePoint = function(x, y) {
   }
 };
 
-// ── Dwell API ────────────────────────────────────────────────────────────────
+// Dwell API
 window.clearDwell = function() {
   clearTimeout(_dwellTimer);
   clearInterval(_dwellInterval);
