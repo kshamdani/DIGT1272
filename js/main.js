@@ -126,9 +126,19 @@ window.hideScrollZones = function() {
 function _makeScrollZone(dir) {
   const z = document.createElement('div');
   z.setAttribute('aria-hidden', 'true');
+
+  // Measure nav and footer heights so zones don't overlap them
+  const nav    = document.querySelector('nav');
+  const footer = document.querySelector('footer');
+  const navH   = nav    ? nav.offsetHeight    : 60;
+  const footH  = footer ? footer.offsetHeight : 80;
+  const zoneH  = Math.round(window.innerHeight * 0.12); // 12% of viewport
+
   z.style.cssText = `
-    position:fixed; left:0; right:0; height:${SCROLL_ZONE_H * 100}vh;
-    ${dir === 'up' ? 'top:0' : 'bottom:0'};
+    position:fixed; left:0; right:0; height:${zoneH}px;
+    ${dir === 'up'
+      ? `top:${navH}px`
+      : `bottom:${footH}px`};
     background:linear-gradient(${dir === 'up' ? 'to bottom' : 'to top'},
       rgba(56,189,248,0.07), transparent);
     border-${dir === 'up' ? 'bottom' : 'top'}:1px dashed rgba(56,189,248,0.2);
@@ -177,8 +187,13 @@ window.handleGazePoint = function(x, y) {
   }
 
   // Check scroll zones (only if not mid dwell on a button)
-  const inTopZone    = y < window.innerHeight * SCROLL_ZONE_H;
-  const inBottomZone = y > window.innerHeight * (1 - SCROLL_ZONE_H);
+const nav        = document.querySelector('nav');
+const footer     = document.querySelector('footer');
+const navH       = nav    ? nav.offsetHeight    : 60;
+const footH      = footer ? footer.offsetHeight : 80;
+const zoneH      = Math.round(window.innerHeight * 0.12);
+const inTopZone    = y > navH && y < navH + zoneH;
+const inBottomZone = y < window.innerHeight - footH && y > window.innerHeight - footH - zoneH;
 
   if (inTopZone && !window._dwellTarget) {
     _startScroll(-1); return;

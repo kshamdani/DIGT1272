@@ -23,6 +23,7 @@ window.GazeTracker = (() => {
   function enable()  { if (mode === 'off') showModeDialog(); }
 
   function disable() {
+    sessionStorage.removeItem('gazeMode');
     if (mode === 'real' || mode === 'calibrating') stopReal();
     if (mode === 'sim') stopSim();
     mode = 'off';
@@ -83,6 +84,7 @@ window.GazeTracker = (() => {
     showCursor(); hidePCursor();
     syncNavBtn(true); syncDemoBtn(true);
     window.showScrollZones?.();
+    sessionStorage.setItem('gazeMode', 'sim'); 
     document.addEventListener('mousemove', onSimMove);
   }
 
@@ -90,6 +92,7 @@ window.GazeTracker = (() => {
     document.removeEventListener('mousemove', onSimMove);
     window.hideScrollZones?.();
     window.clearDwell?.();
+    sessionStorage.removeItem('gazeMode');
   }
 
   function onSimMove(e) {
@@ -113,6 +116,7 @@ window.GazeTracker = (() => {
   }
 
   function stopReal() {
+    sessionStorage.removeItem('gazeMode'); 
     if (typeof webgazer !== 'undefined') {
       try { webgazer.pause(); } catch(e) { /* ignore */ }
     }
@@ -319,6 +323,7 @@ window.GazeTracker = (() => {
     setTimeout(() => {
       ui.remove();
       mode = 'real';
+      sessionStorage.setItem('gazeMode', 'real');
       showCursor(); hidePCursor();
       syncNavBtn(true); syncDemoBtn(true);
       window.showScrollZones?.();
@@ -437,6 +442,38 @@ window.GazeTracker = (() => {
     window.hideScrollZones?.();
     showCalibrationUI();
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const saved = sessionStorage.getItem('gazeMode');
+  if (saved === 'sim') {
+    startSim();
+  } else if (saved === 'real') {
+    
+    const prompt = document.createElement('div');
+    prompt.style.cssText = `position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+      background:#13131a;border:1px solid #38bdf8;border-radius:12px;
+      padding:0.85rem 1.5rem;font-family:'DM Mono',monospace;font-size:0.75rem;
+      color:#38bdf8;z-index:9000;display:flex;align-items:center;gap:1rem;
+      box-shadow:0 0 20px rgba(56,189,248,0.2);`;
+    prompt.innerHTML = `
+      <span>👁 Eye tracking was active</span>
+      <button id="gaze-resume-btn" style="background:#38bdf8;color:#000;border:none;
+        border-radius:6px;padding:0.3rem 0.75rem;font-family:'DM Mono',monospace;
+        font-size:0.72rem;font-weight:700;cursor:pointer;">Resume</button>
+      <button id="gaze-dismiss-btn" style="background:none;border:none;color:#7a7a9a;
+        font-family:'DM Mono',monospace;font-size:0.72rem;cursor:pointer;">✕</button>
+    `;
+    document.body.appendChild(prompt);
+    document.getElementById('gaze-resume-btn').addEventListener('click', () => {
+      prompt.remove();
+      startReal();
+    });
+    document.getElementById('gaze-dismiss-btn').addEventListener('click', () => {
+      prompt.remove();
+      sessionStorage.removeItem('gazeMode');
+    });
+  }
+});
 
   return { enable, disable, recalibrate, get mode() { return mode; } };
 })();
