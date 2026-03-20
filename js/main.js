@@ -381,7 +381,7 @@ function buildAnnouncement(el) {
   // Heading
   if (/^h[1-6]$/.test(tag)) {
     const level = tag[1];
-    return `Heading level ${level}. ${name}. Press H in a screen reader to jump between headings.`;
+    return `Heading level ${level}. ${name}.`;
   }
 
   // Link
@@ -389,14 +389,14 @@ function buildAnnouncement(el) {
     const href = el.getAttribute('href') || '';
     const newTab = el.getAttribute('target') === '_blank' ? ' Opens in new tab.' : '';
     if (!name) name = href;
-    return `Link. ${name}.${newTab} Press Enter to follow.`;
+    return `Link. ${name}.${newTab} Left click to follow.`;
   }
 
   // Button
   if (tag === 'button' || role === 'button') {
     const pressedMsg = pressed !== null ? ` State: ${pressed === 'true' ? 'pressed' : 'not pressed'}.` : '';
     const expandedMsg = expanded !== null ? ` ${expanded === 'true' ? 'Expanded' : 'Collapsed'}.` : '';
-    return `Button. ${name}.${pressedMsg}${expandedMsg} ${disabled}Press Space or Enter to activate.`;
+    return `Button. ${name}.${pressedMsg}${expandedMsg} ${disabled}Left click to activate.`;
   }
 
   // Input
@@ -406,10 +406,10 @@ function buildAnnouncement(el) {
     const labelEl = el.id && document.querySelector(`label[for="${el.id}"]`);
     const labelText = labelEl ? labelEl.textContent.trim() : name;
     if (type === 'checkbox') {
-      return `Checkbox. ${labelText}. ${el.checked ? 'Checked' : 'Unchecked'}. ${required}Press Space to toggle.`;
+      return `Checkbox. ${labelText}. ${el.checked ? 'Checked' : 'Unchecked'}. ${required}Left click to toggle.`;
     }
     if (type === 'radio') {
-      return `Radio button. ${labelText}. ${el.checked ? 'Selected' : 'Not selected'}. ${required}Press Space to select.`;
+      return `Radio button. ${labelText}. ${el.checked ? 'Selected' : 'Not selected'}. ${required}Left click to select.`;
     }
     if (type === 'range') {
       return `Slider. ${labelText}. Value: ${el.value}. Range: ${el.min} to ${el.max}. Use arrow keys to adjust.`;
@@ -422,7 +422,7 @@ function buildAnnouncement(el) {
     const selected = el.options[el.selectedIndex]?.text || '';
     const labelEl = el.id && document.querySelector(`label[for="${el.id}"]`);
     const labelText = labelEl ? labelEl.textContent.trim() : name;
-    return `Dropdown. ${labelText}. Currently: ${selected}. ${required}Press Enter or Space to open.`;
+    return `Dropdown. ${labelText}. Currently: ${selected}. ${required}Left click to open.`;
   }
 
   // Textarea
@@ -446,7 +446,7 @@ function buildAnnouncement(el) {
   }
 
   // Article / section / aside
-  if (tag === 'article' || role === 'article') return `Article. ${name}. Press Enter to read.`;
+  if (tag === 'article' || role === 'article') return `Article. ${name}. Left click to read.`;
   if (tag === 'aside'   || role === 'complementary') return `Aside. ${name || 'Supplementary content'}.`;
   if (tag === 'main'    || role === 'main') return 'Main content landmark.';
 
@@ -462,7 +462,7 @@ function buildAnnouncement(el) {
   if (role === 'tabpanel') return `Tab panel. ${name}. Contains interactive content.`;
   if (role === 'tab') {
     const sel = el.getAttribute('aria-selected') === 'true' ? 'Selected.' : 'Not selected.';
-    return `Tab. ${name}. ${sel} Press Enter to activate.`;
+    return `Tab. ${name}. ${sel} Left click to activate.`;
   }
 
   // Generic landmark with aria label
