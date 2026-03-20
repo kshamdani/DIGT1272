@@ -468,6 +468,12 @@ function buildAnnouncement(el) {
   // Generic landmark with aria label
   if (el.getAttribute('aria-label')) return `${name}.`;
 
+  // Plain text elements
+if (['p', 'blockquote', 'label', 'td', 'th', 'dt', 'dd'].includes(tag)) {
+  if (!name) return null;
+  return name.length > 200 ? name.substring(0, 200) + '…' : name;
+}
+
   // Paragraph / div with text
   if (name) return name;
 
@@ -500,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Attach SR hover to every meaningful element on the page
-  const srTargets = 'a, button, input, select, textarea, img, h1, h2, h3, h4, h5, h6, li, [role], [aria-label], nav, main, article, aside, [tabindex]';
+  const srTargets = 'a, button, input, select, textarea, img, h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, label, figcaption, dt, dd, div, section, [role], [aria-label], nav, main, article, aside, [tabindex]';
   document.querySelectorAll(srTargets).forEach(el => {
     el.addEventListener('mouseenter', () => srHover(el));
   });

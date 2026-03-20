@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - AccessWeb</title>
+  <meta name="description" content="An interactive learning experience about web accessibility, WCAG standards, and inclusive design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-trail" aria-hidden="true"></div>
+<div id="gaze-cursor" aria-hidden="true"><div class="gaze-ring"></div></div>
+<div id="sr-overlay" role="status" aria-live="polite">
+  <div class="sr-label">Screen Reader Output</div>
+  <div id="sr-text">Screen reader active.</div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">AccessWeb</a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+    <li><a href="resources.html">Resources</a></li>
+  </ul>
+  <div class="nav-controls" role="group" aria-label="Accessibility controls">
+    <button class="ctrl-btn" id="btn-sr"   aria-pressed="false">Screen Reader</button>
+    <button class="ctrl-btn" id="btn-hc"   aria-pressed="false">High Contrast</button>
+    <button class="ctrl-btn" id="btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">Eye Tracking</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <div class="page-hero" aria-labelledby="page-heading">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <div class="page-tag">Resources &amp; Citations</div>
+      <h1 id="page-heading" style="text-align: center;">Resources<br>&<br> <span class="accent">Works </span><span class="accent2">Cited</span></h1>
+    </div>
+  </div>
+
+  <div>
+    <br>
+    <p style="text-align: center;">References</p>
+    <br>
+       <p style="text-align: center;">About accessibility laws | ontario.ca. (2015, June 3). Ontario.ca. Retrieved March 20, 2026,<br> from <a href="https://www.ontario.ca/page/about-accessibility-laws" style="color: #7cfc9f;" target="_blank">https://www.ontario.ca/page/about-accessibility-laws</a></p>
+       <br>
+       <p style="text-align: center;">How to make websites accessible | ontario.ca. (2014, November 7). Ontario.ca. Retrieved<br> March 20, 2026, from <a href = "https://www.ontario.ca/page/how-make-websites-accessible" style="color: #7cfc9f;" target="_blank">https://www.ontario.ca/page/how-make-websites-accessible</a></p>
+       <br>
+       <p style="text-align: center;">How to Meet WCAG (Quickref Reference). (n.d.). W3C. Retrieved March 20, 2026, from<br> <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" style="color: #7cfc9f;" target="_blank">https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1</a></p>
+       <br>
+       <p style="text-align: center;">W3C Accessibility Standards Overview | Web Accessibility Initiative (WAI). (2024, February 29).<br> W3C. Retrieved March 20, 2026, from <a href="https://www.w3.org/WAI/standards-guidelines/" style="color: #7cfc9f;" target="_blank">https://www.w3.org/WAI/standards-guidelines/</a></p>
+       <br>
+       <p style="text-align: center;">WCAG 2 Overview | Web Accessibility Initiative (WAI). (n.d.). W3C. Retrieved March 20, 2026,<br> from <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" style="color: #7cfc9f;" target="_blank">https://www.w3.org/WAI/standards-guidelines/wcag/</a></p>
+       <br><br>
+    </div>
+
+
+  <footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">AccessWeb</a>
+        <p>An interactive learning project about web accessibility, inclusive design, and digital citizenship.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About This Project</a></li>
+          <li><a href="demos.html">Interactive Demos</a></li>
+          <li><a href="standards.html">Standards</a></li>
+          <li><a href="why.html">Why It Matters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Official Sources</h4>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Ref</a></li>
+          <li><a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/" target="_blank" rel="noopener">Accessible Canada Act</a></li>
+          <li><a href="https://www.ontario.ca/page/accessibility-in-ontario" target="_blank" rel="noopener">AODA Ontario</a></li>
+          <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener">W3C WCAG Overview</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AccessWeb Project. DIGT 1272: Mobilizing Digital Citizenship</p>
+      <div class="footer-badges"><span class="badge">WCAG 2.1 AA</span><span class="badge">Accessible Canada Act</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/gaze.js"></script>
+</body>
+</html>
