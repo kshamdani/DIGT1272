@@ -23,7 +23,18 @@
 
 <nav role="navigation" aria-label="Main navigation">
   <a href="index.html" class="nav-logo">AccessWeb</a>
-  <ul class="nav-links" role="list">
+  
+<button class="hamburger" id="hamburger-btn"
+    aria-label="Toggle navigation menu"
+    aria-expanded="false"
+    aria-controls="nav-links">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links" id="nav-links" role="list">
+
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="demos.html">Demos</a></li>
@@ -38,7 +49,25 @@
     <button class="ctrl-btn" id="btn-gaze" aria-pressed="false">Eye Tracking</button>
   </div>
 </nav>
-
+<!-- Mobile menu overlay -->
+<div id="mobile-menu" aria-label="Mobile navigation" role="dialog" aria-modal="true">
+  <p class="mobile-menu-label">Pages</p>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demos.html">Demos</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="why.html">Why It Matters</a></li>
+    <li><a href="resources.html">Resources</a></li>
+  </ul>
+  <p class="mobile-menu-label">Accessibility Features</p>
+  <div class="mobile-controls">
+    <button class="ctrl-btn" id="mob-btn-sr"   aria-pressed="false">Screen Reader</button>
+    <button class="ctrl-btn" id="mob-btn-hc"   aria-pressed="false">High Contrast</button>
+    <button class="ctrl-btn" id="mob-btn-text" aria-pressed="false">A+ Text Size</button>
+    <button class="ctrl-btn" id="mob-btn-gaze" aria-pressed="false">Eye Tracking</button>
+  </div>
+</div>
 <main id="main-content">
 
   <div class="page-hero" aria-labelledby="page-heading">

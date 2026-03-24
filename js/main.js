@@ -510,40 +510,96 @@ function srHover(el) {
 
 // ===== NAV BUTTON EVENTS =====
 document.addEventListener('DOMContentLoaded', () => {
-  loadState();
+    loadState();
 
-  document.getElementById('btn-hc')?.addEventListener('click', () => applyHC(!document.body.classList.contains('high-contrast')));
-  document.getElementById('btn-text')?.addEventListener('click', () => applyLT(!document.documentElement.classList.contains('large-text')));
-  document.getElementById('btn-sr')?.addEventListener('click', () => applySR(!window.srMode));
-  document.getElementById('btn-gaze')?.addEventListener('click', () => {
-    const isOn = window.GazeTracker?.mode !== 'off';
-    applyGaze(!isOn);
+      document.getElementById('btn-hc')?.addEventListener('click', () => applyHC(!document.body.classList.contains('high-contrast')));
+        document.getElementById('btn-text')?.addEventListener('click', () => applyLT(!document.documentElement.classList.contains('large-text')));
+          document.getElementById('btn-sr')?.addEventListener('click', () => applySR(!window.srMode));
+            document.getElementById('btn-gaze')?.addEventListener('click', () => {
+                const isOn = window.GazeTracker?.mode !== 'off';
+                    applyGaze(!isOn);
+                      });
+
+                        // Attach SR hover to every meaningful element on the page
+                          const srTargets = 'a, button, input, select, textarea, img, h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, label, figcaption, dt, dd, div, section, [role], [aria-label], nav, main, article, aside, [tabindex]';
+                            document.querySelectorAll(srTargets).forEach(el => {
+                                el.addEventListener('mouseenter', () => srHover(el));
+                                  });
+
+                                    // Highlight active nav link
+                                      const path = location.pathname.split('/').pop() || 'index.html';
+                                        document.querySelectorAll('.nav-links a').forEach(a => {
+                                            const href = a.getAttribute('href').split('/').pop();
+                                                if (href === path) a.classList.add('active');
+                                                  });
+
+                                                    // Scroll reveal
+                                                      const reveals = document.querySelectorAll('.reveal');
+                                                        const obs = new IntersectionObserver(entries => {
+                                                            entries.forEach((entry, i) => {
+                                                                  if (entry.isIntersecting) {
+                                                                          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+                                                                                }
+                                                                                    });
+                                                                                      }, { threshold: 0.1 });
+                                                                                        reveals.forEach(el => obs.observe(el));
+
+                                                                                          // Hamburger menu
+const hamburger  = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function openMenu() {
+  mobileMenu?.classList.add('open');
+  hamburger?.classList.add('open');
+  hamburger?.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  syncMobileButtons();
+}
+
+function closeMenu() {
+  mobileMenu?.classList.remove('open');
+  hamburger?.classList.remove('open');
+  hamburger?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+function syncMobileButtons() {
+  // Keep mobile ctrl buttons in sync with current state
+  const map = { 'mob-btn-sr': 'btn-sr', 'mob-btn-hc': 'btn-hc',
+                'mob-btn-text': 'btn-text', 'mob-btn-gaze': 'btn-gaze' };
+  Object.entries(map).forEach(([mobId, deskId]) => {
+    const desk = document.getElementById(deskId);
+    const mob  = document.getElementById(mobId);
+    if (desk && mob) {
+      mob.classList.toggle('active', desk.classList.contains('active'));
+      mob.setAttribute('aria-pressed', desk.getAttribute('aria-pressed'));
+    }
   });
+}
 
-  // Attach SR hover to every meaningful element on the page
-  const srTargets = 'a, button, input, select, textarea, img, h1, h2, h3, h4, h5, h6, p, li, td, th, blockquote, label, figcaption, dt, dd, div, section, [role], [aria-label], nav, main, article, aside, [tabindex]';
-  document.querySelectorAll(srTargets).forEach(el => {
-    el.addEventListener('mouseenter', () => srHover(el));
-  });
-
-  // Highlight active nav link
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href').split('/').pop();
-    if (href === path) a.classList.add('active');
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => obs.observe(el));
+hamburger?.addEventListener('click', () => {
+  mobileMenu?.classList.contains('open') ? closeMenu() : openMenu();
 });
+
+// Mobile accessibility buttons — wire to same functions as desktop
+document.getElementById('mob-btn-sr')?.addEventListener('click',   () => { applySR(!window.srMode);                                           syncMobileButtons(); });
+document.getElementById('mob-btn-hc')?.addEventListener('click',   () => { applyHC(!document.body.classList.contains('high-contrast'));        syncMobileButtons(); });
+document.getElementById('mob-btn-text')?.addEventListener('click', () => { applyLT(!document.documentElement.classList.contains('large-text')); syncMobileButtons(); });
+document.getElementById('mob-btn-gaze')?.addEventListener('click', () => { applyGaze(window.GazeTracker?.mode === 'off');                      syncMobileButtons(); });
+
+// Close when a nav link is tapped
+mobileMenu?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', closeMenu);
+});
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mobileMenu?.classList.contains('open')) {
+    closeMenu();
+    hamburger?.focus();
+  }
+});
+})
 
 // ===== WEB SPEECH =====
 window.speakText = function(text) {
