@@ -49,7 +49,7 @@ window.GazeTracker = (() => {
             font-size:1.4rem;color:#fff;margin-bottom:0.75rem;letter-spacing:-0.03em;">
           Eye Tracking Mode</h2>
         <p style="color:#7a7a9a;font-size:0.88rem;margin-bottom:2rem;line-height:1.6;">
-          Choose how you want to experience gaze-based interaction.</p>
+          Choose how you want to experience gaze-based interaction.<br><br>NOTE: Real-time eyetracking on this platform is designed by WebGaze.js which may include limitations and inaccuracies.</p>
         <button id="dlg-real" style="display:block;width:100%;padding:1.2rem 1.5rem;
             margin-bottom:1rem;background:rgba(56,189,248,0.1);border:2px solid #38bdf8;
             border-radius:12px;color:#38bdf8;cursor:pointer;
